@@ -105,13 +105,15 @@ export default class GameOverScene extends Container {
     initEvents() {
         this._startBtn.on("pointerdown", e => {
             e.stopPropagation(); //组织冒泡
-            this.fireRestart();
+            if (!this.animating) this.fireRestart();
         });
     }
     fireRestart() {
         this.emit("restart");
     }
     show(score, bestScore) {
+        this.animating = true;
+
         this.visible = true;
 
         this._scoreLabel.text = score;
@@ -123,7 +125,10 @@ export default class GameOverScene extends Container {
             easing: "linear",
             duration: 700
         });
-
+        tl.complete = ()=>{
+            this.animating = false;
+            //console.log(this.animating)
+        }
         tl.add({
             targets: this._gameover,
             alpha: 1,
@@ -155,6 +160,8 @@ export default class GameOverScene extends Container {
                 },
                 0
             );
+
+        console.log(tl);
         //easing: 'linear'
     }
 
