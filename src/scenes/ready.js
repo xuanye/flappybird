@@ -1,6 +1,6 @@
-import { Container, Texture, Sprite } from "pixi.js";
+import { Container, Texture, Sprite } from 'pixi.js';
 
-import utils from "../utils";
+import utils from '../utils';
 
 export default class GameReadyScene extends Container {
     constructor(setting) {
@@ -8,7 +8,7 @@ export default class GameReadyScene extends Container {
         this._init(setting);
     }
     _init(setting) {
-        this._textureBase = Texture.from("ready");
+        this._textureBase = Texture.from('ready');
         this._setting = setting;
         this.draw();
     }
@@ -16,7 +16,7 @@ export default class GameReadyScene extends Container {
     draw() {
         let arr = utils.spriteFrame(this._textureBase, [
             [0, 0, 508, 158],
-            [0, 158, 286, 246]
+            [0, 158, 286, 246],
         ]);
         let getready = new Sprite(arr[0]);
 

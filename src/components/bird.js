@@ -1,13 +1,13 @@
-import { AnimatedSprite, Texture } from "pixi.js";
-import anime from "animejs/lib/anime.es.js";
-import utils from "../utils";
+import { AnimatedSprite, Texture } from 'pixi.js';
+import anime from 'animejs/lib/anime.es.js';
+import utils from '../utils';
 
 export default class Bird extends AnimatedSprite {
     constructor(setting) {
-        let textureArray = utils.spriteFrame(Texture.from("bird"), [
+        let textureArray = utils.spriteFrame(Texture.from('bird'), [
             [0, 0, 86, 60],
             [0, 60, 86, 60],
-            [0, 120, 86, 60]
+            [0, 120, 86, 60],
         ]);
 
         super(textureArray);
@@ -38,12 +38,12 @@ export default class Bird extends AnimatedSprite {
         if (!this._readyAnime) {
             this._readyAnime = anime({
                 targets: this,
-                y: "+=10",
-                angle: "-=8",
+                y: '+=10',
+                angle: '-=8',
                 duration: 400,
                 loop: true,
-                direction: "alternate",
-                easing: "linear"
+                direction: 'alternate',
+                easing: 'linear',
             });
         }
         this._readyAnime.play();
@@ -78,8 +78,7 @@ export default class Bird extends AnimatedSprite {
         let time = +new Date() - this._flyStartTime;
 
         //飞行距离
-        let distance =
-            this._initVelocity * time - 0.5 * this._gravity * time * time;
+        let distance = this._initVelocity * time - 0.5 * this._gravity * time * time;
         //console.log('distance=',distance)
         //y轴坐标
         let y = this._flyStartY - distance;
@@ -93,7 +92,7 @@ export default class Bird extends AnimatedSprite {
                 this._flyAnimate = anime({
                     targets: this,
                     angle: -20,
-                    duration: 200
+                    duration: 200,
                 });
 
                 this._isUp = true;
@@ -102,7 +101,7 @@ export default class Bird extends AnimatedSprite {
                 this._flyAnimate = anime({
                     targets: this,
                     angle: 90,
-                    duration: 300
+                    duration: 300,
                 });
                 this._isUp = false;
             }

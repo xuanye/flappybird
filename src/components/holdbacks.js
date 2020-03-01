@@ -1,6 +1,6 @@
-import { Container, Texture, Sprite } from "pixi.js";
-import anime from "animejs/lib/anime.es.js";
-import utils from "../utils";
+import { Container, Texture, Sprite } from 'pixi.js';
+import anime from 'animejs/lib/anime.es.js';
+import utils from '../utils';
 
 export default class HoldBacks extends Container {
     constructor(setting) {
@@ -26,13 +26,12 @@ export default class HoldBacks extends Container {
         this.height = setting.stageHeight;
         this.reset();
 
-        this._hoseTexture = Texture.from("holdback");
+        this._hoseTexture = Texture.from('holdback');
         this.draw(this._hoseTexture);
     }
 
     _placeHose(downHose, upHose, index) {
-        let downMinY =
-            this._setting.groundY - downHose.height + this._hoseSpacingY;
+        let downMinY = this._setting.groundY - downHose.height + this._hoseSpacingY;
         //下面障碍在y轴的最下的位置, 180管子顶端的部分
         let downMaxY = this._setting.groundY - 180;
         //在downMinY和downMaxY之间随机位置
@@ -73,7 +72,7 @@ export default class HoldBacks extends Container {
         for (let i = 0; i < this._numHoses; i++) {
             let spriteArr = utils.spriteFrame(hoseBase, [
                 [0, 0, 148, 820],
-                [148, 0, 148, 820]
+                [148, 0, 148, 820],
             ]);
 
             let downHose = new Sprite(spriteArr[0]);
@@ -94,8 +93,8 @@ export default class HoldBacks extends Container {
                 x: [this.x, targetX],
                 duration: (this.x - targetX) * 4,
                 autoplay: false,
-                easing: "linear",
-                complete: this._resetHoses.bind(this)
+                easing: 'linear',
+                complete: this._resetHoses.bind(this),
             });
         }
 
@@ -105,8 +104,8 @@ export default class HoldBacks extends Container {
                 x: [this.x, targetX],
                 duration: (this.x - targetX) * 4,
                 autoplay: false,
-                easing: "linear",
-                complete: this._resetHoses.bind(this)
+                easing: 'linear',
+                complete: this._resetHoses.bind(this),
             });
             //启动缓动动画
         }
@@ -133,14 +132,7 @@ export default class HoldBacks extends Container {
         this._passThrough = 0;
     }
     checkCollision(bird, cb) {
-        return !!utils.bump.hit(
-            bird,
-            this.children,
-            true,
-            false,
-            true,
-            cb || function() {}
-        );
+        return !!utils.bump.hit(bird, this.children, true, false, true, cb || function() {});
     }
 
     calcPassThrough(x) {

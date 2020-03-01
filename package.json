@@ -2,23 +2,28 @@
   "scripts": {
     "build": "webpack --mode production --config webpack.config.prod.js",
     "clean": "rm -rf ./build && mkdir ./build",
+    "format": "prettier --write \"src/**/*.js\"",
     "start": "webpack-dev-server --config webpack.config.dev.js"
   },
   "author": "xuanye",
   "repository": "https://github.com/xuanye/flappybird",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.1.1",
+    "prettier": "^1.19.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "html-webpack-plugin": "^3.2.0",
     "rimraf": "^3.0.2",
-    "uglifyjs-webpack-plugin": "^2.1.3",
-    "webpack": "^4.33.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.6",
     "webpack-cdn-plugin": "^3.2.2",
-    "webpack-cli": "^3.3.3",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "animejs": "^3.1.0",

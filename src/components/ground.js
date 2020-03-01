@@ -1,11 +1,11 @@
-import { Sprite, Texture } from "pixi.js";
-import { STAGE_WIDTH, STAGE_HEIGHT } from "../constants";
+import { Sprite, Texture } from 'pixi.js';
+import { STAGE_WIDTH, STAGE_HEIGHT } from '../constants';
 
 const GROUND_OFFSET = 60;
 
 export default class Ground extends Sprite {
     constructor() {
-        super(Texture.from("ground"));
+        super(Texture.from('ground'));
 
         this._scaleX = (STAGE_WIDTH + GROUND_OFFSET * 2) / this.width;
 

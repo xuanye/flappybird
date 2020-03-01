@@ -1,5 +1,5 @@
-import { Sprite, Texture } from "pixi.js";
-import { STAGE_WIDTH, STAGE_HEIGHT } from "../constants";
+import { Sprite, Texture } from 'pixi.js';
+import { STAGE_WIDTH, STAGE_HEIGHT } from '../constants';
 
 /**
  * 背景组件
@@ -10,7 +10,7 @@ import { STAGE_WIDTH, STAGE_HEIGHT } from "../constants";
  */
 export default class Background extends Sprite {
     constructor() {
-        super(Texture.from("bg"));
+        super(Texture.from('bg'));
 
         this.scale.set(STAGE_WIDTH / this.width, STAGE_HEIGHT / this.height);
     }
